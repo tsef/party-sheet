@@ -1,0 +1,11 @@
+{
+    "name": "party-sheet",
+    "title": "Party Sheet",
+    "description": "Party like it's 1999",
+    "author": "tsef",
+    "version": "0.0.1",
+    "minimumCoreVersion": "0.8.0",
+    "esmodules": [
+        "scripts/main.js"
+    ]
+}
