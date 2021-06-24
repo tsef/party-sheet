@@ -1,6 +1,6 @@
 export class PartySheetApp extends FormApplication {
-    constructor(options) {
-      super(options);
+    constructor(object,options) {
+      super(object,options);
       this.mon_html = options;
       //this.exampleOption = exampleOption;
     }

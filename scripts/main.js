@@ -1,14 +1,13 @@
 import { PartySheetApp } from "./partysheet.js"
 
- // window.MyFormApplication = MyFormApplication;
 
 
 //PartySheet class
 class PartySheet {
   static openPartySheet = () => {
     //const html = await renderTemplate("modules/party-sheet/scripts/myFormApplication.html");
-    let data = PartySheet.prepareData();
-    /*const template_file = "modules/party-sheet/html-templates/test_template.html";
+    let data = PartySheet.prepareData()[0];
+    const template_file = "modules/party-sheet/html-templates/test_template.html";
     const template_data = {
       str: data["str"].value,
       dex: data["dex"].value,
@@ -17,34 +16,9 @@ class PartySheet {
       wis: data["wis"].value,
       cha: data["cha"].value
     };
-    /*const template_file = "modules/party-sheet/html-templates/test2.html";
-    const template_data = {
-      test: "tototata"
-    };
+    
     console.log(template_data);
-    new PartySheetApp(template_data, {template: template_file}).render(true);*/
-    const template_file = "modules/party-sheet/html-templates/test_template.html";
-    let template_data;
-    let rendered_html;
-    let mon_html = "<form>"
-    for (let i = 0;i < data.length;i++) {
-      //console.log(data[i]);
-      template_data = {
-      str: data[i]["str"].value,
-      dex: data[i]["dex"].value,
-      con: data[i]["con"].value,
-      int: data[i]["int"].value,
-      wis: data[i]["wis"].value,
-      cha: data[i]["cha"].value
-    };
-    //console.log(template_data);
-    rendered_html = renderTemplate(template_file,template_data);
-    //console.log(rendered_html);
-    mon_html +=rendered_html.toString();
-    }
-    mon_html += "</form>";
-    console.log(mon_html);
-    new PartySheetApp(mon_html).render(true);
+    new PartySheetApp(template_data, {template: template_file}).render(true);
 }
 
   static partysheetButton = () => {
