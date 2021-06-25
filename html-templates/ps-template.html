@@ -1,0 +1,36 @@
+<form>
+    <ol>
+        <li class="item flexrow">
+            <table style="border-collapse: collapse; width: 100%;" border="1">
+                <tbody>
+                    <tr>
+                        <td style="width: 10%; text-align: center;">name</td>
+                        <td style="width: 10%; text-align: center;">str</td>
+                        <td style="width: 10%; text-align: center;">dex</td>
+                        <td style="width: 10%; text-align: center;">con</td>
+                        <td style="width: 10%; text-align: center;">int</td>
+                        <td style="width: 10%; text-align: center;">wis</td>
+                        <td style="width: 10%; text-align: center;">cha</td>
+                    </tr>
+                </tbody>
+            </table>
+        </li>
+        {{#each this}}
+        <li class="item flexrow">
+            <table style="border-collapse: collapse; width: 100%;" border="1">
+                <tbody>
+                    <tr>
+                        <td style="width: 10%; text-align: center;">{{this.name}}</td>
+                        <td style="width: 10%; text-align: center;">{{this.str}}</td>
+                        <td style="width: 10%; text-align: center;">{{this.dex}}</td>
+                        <td style="width: 10%; text-align: center;">{{this.con}}</td>
+                        <td style="width: 10%; text-align: center;">{{this.int}}</td>
+                        <td style="width: 10%; text-align: center;">{{this.wis}}</td>
+                        <td style="width: 10%; text-align: center;">{{this.cha}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </li>
+        {{/each}}
+    </ol>
+</form>
