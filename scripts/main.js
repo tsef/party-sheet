@@ -6,17 +6,31 @@ import { PartySheetApp } from "./partysheet.js"
 class PartySheet {
   static openPartySheet = () => {
     //const html = await renderTemplate("modules/party-sheet/scripts/myFormApplication.html");
-    let data = PartySheet.prepareData()[0];
+    let data = PartySheet.prepareData();
     const template_file = "modules/party-sheet/html-templates/test_template.html";
-    const template_data = {
-      str: data["str"].value,
-      dex: data["dex"].value,
-      con: data["con"].value,
-      int: data["int"].value,
-      wis: data["wis"].value,
-      cha: data["cha"].value
-    };
+    //const template_data = {
+    //  str: data["str"].value,
+    //  dex: data["dex"].value,
+    //  con: data["con"].value,
+    //  int: data["int"].value,
+    //  wis: data["wis"].value,
+    //  cha: data["cha"].value
+    //};
     
+    let temp = [];
+    data.forEach(e=>{
+      temp.push({
+          str: e["str"].value,
+          dex: e["dex"].value,
+          con: e["con"].value,
+          int: e["int"].value,
+          wis: e["wis"].value,
+          cha: e["cha"].value
+        }
+      )
+    }
+  );
+    let template_data = {persons: temp};
     console.log(template_data);
     new PartySheetApp(template_data, {template: template_file}).render(true);
 }
