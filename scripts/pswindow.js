@@ -31,7 +31,13 @@ export class PSWindow extends FormApplication {
                 con: game.actors.get(id).data.data.abilities["con"].value,
                 int: game.actors.get(id).data.data.abilities["int"].value,
                 wis: game.actors.get(id).data.data.abilities["wis"].value,
-                cha: game.actors.get(id).data.data.abilities["cha"].value
+                cha: game.actors.get(id).data.data.abilities["cha"].value,
+                strmod: game.actors.get(id).data.data.abilities["str"].mod,
+                dexmod: game.actors.get(id).data.data.abilities["dex"].mod,
+                conmod: game.actors.get(id).data.data.abilities["con"].mod,
+                intmod: game.actors.get(id).data.data.abilities["int"].mod,
+                wismod: game.actors.get(id).data.data.abilities["wis"].mod,
+                chamod: game.actors.get(id).data.data.abilities["cha"].mod,
             })
         });
         return template_data;
@@ -43,6 +49,8 @@ export class PSWindow extends FormApplication {
         html.find('.actor-delete').click(this._onActorDelete.bind(this));
     }
     
+
+    //delete actor from list
     _onActorDelete(event) {
         event.preventDefault();
         const actorId = event.currentTarget.closest(".actor-row").getAttribute("actor-id");//.dataset.toString();//.itemId;
