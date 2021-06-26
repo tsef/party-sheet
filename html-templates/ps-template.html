@@ -16,7 +16,8 @@
             </table>
         </li>
         {{#each this}}
-        <li class="item flexrow" id={{id}}>
+        <li class="item flexrow actor-row" actor-id={{id}}>
+            <div class="actor-stats">
             <table style="border-collapse: collapse; width: 100%;" border="1">
                 <tbody>
                     <tr>
@@ -30,6 +31,12 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
+            <div class="actor-delete-control">
+                <a class="actor-delete">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </div>
         </li>
         {{/each}}
     </ol>

@@ -36,7 +36,25 @@ export class PSWindow extends FormApplication {
         });
         return template_data;
     }
+
+    //activate listeners on the form
+    activateListeners(html) {
+        super.activateListeners(html);
+        html.find('.actor-delete').click(this._onActorDelete.bind(this));
+    }
     
+    _onActorDelete(event) {
+        event.preventDefault();
+        const actorId = event.currentTarget.closest(".actor-row").getAttribute("actor-id");//.dataset.toString();//.itemId;
+        console.log(actorId);
+        const index = this.actorIdList.indexOf(actorId);
+        if (index > -1) {
+            this.actorIdList.splice(index, 1);
+        }
+        game.settings.set("party-sheet", "actorsIdListSettings", this.actorIdList);
+        this.render();
+    }
+
     //what happens when we drag an actor on the form
     async _onDrop(event) {
         //try to extract the data from the event
