@@ -34,6 +34,18 @@ class PSApp {
     }
 }
 
+//Initialize Party Sheet
+Hooks.once('init', async function () {
+   console.log("Initializing Party Sheet");
+
+   //Initializing actors list client wide
+   await game.settings.register("party-sheet", "actorsIdListSettings",{
+    default: [],
+    type: Object,
+    config: false,   
+   });
+});
+
 //Hook that let us put a button in the footer of the actors sidebar
 Hooks.on("renderSidebarTab", async (app, html) => {
     if (app.options.id == "actors") {

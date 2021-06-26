@@ -2,7 +2,7 @@ export class PSWindow extends FormApplication {
     //Class constructor
     constructor() {
         super();
-        this.actorIdList = [];
+        this.actorIdList = game.settings.get("party-sheet", "actorsIdListSettings");
         //this.template_data; //the data needed to build the display
     }
 
@@ -24,6 +24,7 @@ export class PSWindow extends FormApplication {
         let template_data = [];
         this.actorIdList.forEach(id => {
             template_data.push({
+                id: id,
                 name: game.actors.get(id).data.name,
                 str: game.actors.get(id).data.data.abilities["str"].value,
                 dex: game.actors.get(id).data.data.abilities["dex"].value,
@@ -45,20 +46,23 @@ export class PSWindow extends FormApplication {
         } catch (err) {
             return false;
         }
-        console.log(dropData);
-
+        
         if (dropData["type"] !== "Actor") {
             console.log("Error: need an Actor type");
             return;
-        } else {
+        } else if (game.actors.get(dropData["id"]).data.type === "character"){
             if (this.actorIdList.find(e => e === dropData["id"] )) {
                 console.log("Already in array");
                 return;
             } else {
                 this.actorIdList.push(dropData["id"]);
+                game.settings.set("party-sheet", "actorsIdListSettings", this.actorIdList);
                 this.render();
-            }
-            //console.log(this.actorIdList);
+            } 
+            //console.log(this.actorIdList); 
+        } else {
+            console.log("Error: we need an actor of type character");
+            return;
         }
     }
 }
